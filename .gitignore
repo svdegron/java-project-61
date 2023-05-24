@@ -1,14 +1,3 @@
-#├── app
-#│   ├── gradle
-#│   │   └── wrapper
-#│   │       ├── gradle-wrapper.jar
-#│   │       └── gradle-wrapper.properties
-#│   ├── build.gradle
-#│   ├── gradlew
-#│   ├── gradlew.bat
-#│   └── settings.gradle
-#└── README.md
-
 app/.gitignore
 .idea/
 .gradle/
