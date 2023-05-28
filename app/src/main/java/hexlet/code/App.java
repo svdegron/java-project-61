@@ -18,8 +18,8 @@ public class App {
                 break;
             case 2:
                 user = createUser(scanner);
-                Eval newGame = new Eval(user);
-                newGame.startGame(scanner);
+                Eval newGame = new Eval(user, scanner);
+                newGame.startGame();
                 break;
             default:
                 System.out.println(String.format("Menu item with number \"%s\" is not in the list", chooseItem));

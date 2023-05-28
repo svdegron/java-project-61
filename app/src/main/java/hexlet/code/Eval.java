@@ -7,10 +7,12 @@ public class Eval {
     private final String description = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     private final int needWin = 3;
     private Cli player;
+    private Scanner scanner;
     private int countWin;
 
-    Eval(Cli player) {
+    Eval(Cli player, Scanner scanner) {
         this.player = player;
+        this.scanner = scanner;
         this.countWin = 0;
     }
 
@@ -36,13 +38,13 @@ public class Eval {
         System.out.println(getDescription());
     }
 
-    public void startGame(Scanner scanner) {
+    public void startGame() {
         printDescription();
 
         boolean repeatGame = false;
 
         do {
-            repeatGame = gameProcess(scanner);
+            repeatGame = gameProcess();
 
             if (repeatGame) {
                 addWin();
@@ -53,7 +55,7 @@ public class Eval {
         printCongratulation();
     }
 
-    private boolean gameProcess(Scanner scanner) {
+    private boolean gameProcess() {
         Random rnd = new Random();
         int currentNumber = rnd.nextInt(100);
 
