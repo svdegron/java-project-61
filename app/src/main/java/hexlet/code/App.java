@@ -1,6 +1,10 @@
 package hexlet.code;
 
 //import java.util.Random;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Eval;
+import hexlet.code.games.Game;
+
 import java.util.Scanner;
 
 public class App {
@@ -12,18 +16,27 @@ public class App {
 
         int chooseItem = scanner.nextInt();
 
+        Game game = null;
+
         switch (chooseItem) {
             case 1:
                 createUser(scanner);
                 break;
             case 2:
                 user = createUser(scanner);
-                Eval newGame = new Eval(user, scanner);
-                newGame.startGame();
+                game = new Eval(user, scanner);
+                break;
+            case 3:
+                user = createUser(scanner);
+                game = new Calc(user, scanner);
                 break;
             default:
                 System.out.println(String.format("Menu item with number \"%s\" is not in the list", chooseItem));
                 break;
+        }
+
+        if (game != null) {
+            Engine.startGame(game);
         }
 
         scanner.close();
@@ -35,6 +48,7 @@ public class App {
         menu.append("Please enter the game number and press Enter.\n");
         menu.append("1 - Greet\n");
         menu.append("2 - Even\n");
+        menu.append("3 - Calc\n");
         menu.append("0 - Exit\n");
         menu.append("Your choice: ");
 
