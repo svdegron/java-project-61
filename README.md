@@ -7,4 +7,4 @@
 [![asciicast](https://asciinema.org/a/04FXSJtBUMLMxZTGLQYvOThwl.svg)](https://asciinema.org/a/04FXSJtBUMLMxZTGLQYvOThwl)
 
 **Calc**
-[![asciicast](https://asciinema.org/a/cYzFQbEEw8vP9gnDBbuRvcuPX.svg)](https://asciinema.org/a/cYzFQbEEw8vP9gnDBbuRvcuPX)
+[![asciicast](https://asciinema.org/a/Vy9RxfVnTEJflMusJFsIJCgGA.svg)](https://asciinema.org/a/Vy9RxfVnTEJflMusJFsIJCgGA)
