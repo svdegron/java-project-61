@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class Prime implements Game {
     private final String description = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    private Cli player;
-    private Scanner scanner;
+    public Cli player;
+    public Scanner scanner;
     private String correctAnswer;
     private String userAnswer;
 
@@ -35,7 +35,8 @@ public class Prime implements Game {
     @Override
     public boolean launch() {
         Random rnd = new Random();
-        int currentNumber = rnd.nextInt(1, 32);
+        int lastNumber = 32;
+        int currentNumber = rnd.nextInt(lastNumber);
 
         setCorrectAnswer(isPrime(currentNumber));
 
@@ -47,7 +48,7 @@ public class Prime implements Game {
     }
 
     private String isPrime(int num) {
-        if (num == 1) {
+        if (num == 0 || num == 1) {
             return "no";
         }
 

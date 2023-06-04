@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class Progression implements Game {
     private final String description = "What number is missing in the progression?";
-    private Cli player;
-    private Scanner scanner;
+    public Cli player;
+    public Scanner scanner;
     private int correctAnswer;
     private int userAnswer;
 
@@ -34,11 +34,12 @@ public class Progression implements Game {
     @Override
     public boolean launch() {
         Random rnd = new Random();
-
-        int countProgression = rnd.nextInt(5, 10);
-        int hideElement = rnd.nextInt(0, countProgression);
-        int startProgression = rnd.nextInt(1, 10);
-        int stepProgression = rnd.nextInt(1, 10);
+        int minLength = 5;
+        int maxLength = 10;
+        int countProgression = rnd.nextInt(minLength, maxLength);
+        int hideElement = rnd.nextInt(countProgression);
+        int startProgression = rnd.nextInt(maxLength);
+        int stepProgression = rnd.nextInt(maxLength);
         StringBuilder stringProgression = new StringBuilder();
 
         stringProgression.append(" " + startProgression);

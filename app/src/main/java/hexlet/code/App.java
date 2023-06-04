@@ -15,31 +15,31 @@ public class App {
 
         printMenu();
 
-        int chooseItem = scanner.nextInt();
+        String chooseItem = scanner.next();
 
         Game game = null;
 
         switch (chooseItem) {
-            case 1:
+            case "1":
                 createUser(scanner);
                 break;
-            case 2:
+            case "2":
                 user = createUser(scanner);
                 game = new Eval(user, scanner);
                 break;
-            case 3:
+            case "3":
                 user = createUser(scanner);
                 game = new Calc(user, scanner);
                 break;
-            case 4:
+            case "4":
                 user = createUser(scanner);
                 game = new Gcd(user, scanner);
                 break;
-            case 5:
+            case "5":
                 user = createUser(scanner);
                 game = new Progression(user, scanner);
                 break;
-            case 6:
+            case "6":
                 user = createUser(scanner);
                 game = new Prime(user, scanner);
                 break;

@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class Calc implements Game {
     private final String description = "What is the result of the expression?";
-    private Cli player;
-    private Scanner scanner;
+    public Cli player;
+    public Scanner scanner;
     private int correctAnswer;
     private int userAnswer;
 
@@ -52,9 +52,11 @@ public class Calc implements Game {
     @Override
     public boolean launch() {
         Random rnd = new Random();
-        int firstNumber = rnd.nextInt(100);
-        int secondNumber = rnd.nextInt(100);
-        int chooseOperation = rnd.nextInt(100) % 3;
+        int maxNumber = 100;
+        int firstNumber = rnd.nextInt(maxNumber);
+        int secondNumber = rnd.nextInt(maxNumber);
+        int probability = 3;
+        int chooseOperation = rnd.nextInt(maxNumber) % probability;
         char operation = '?';
 
         switch (chooseOperation) {
