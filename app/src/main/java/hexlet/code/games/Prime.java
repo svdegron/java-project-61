@@ -47,6 +47,10 @@ public class Prime implements Game {
     }
 
     private String isPrime(int num) {
+        if (num == 1) {
+            return "no";
+        }
+
         for (int i = 2; i <= Math.sqrt(num); i++) {
             if (num % i == 0) {
                 return "no";
