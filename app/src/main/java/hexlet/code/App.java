@@ -1,11 +1,10 @@
 package hexlet.code;
 
-//import java.util.Random;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Eval;
 import hexlet.code.games.Game;
 import hexlet.code.games.Gcd;
-
+import hexlet.code.games.Progression;
 import java.util.Scanner;
 
 public class App {
@@ -35,6 +34,10 @@ public class App {
                 user = createUser(scanner);
                 game = new Gcd(user, scanner);
                 break;
+            case 5:
+                user = createUser(scanner);
+                game = new Progression(user, scanner);
+                break;
             default:
                 System.out.println(String.format("Menu item with number \"%s\" is not in the list", chooseItem));
                 break;
@@ -55,6 +58,7 @@ public class App {
         menu.append("2 - Even\n");
         menu.append("3 - Calc\n");
         menu.append("4 - GCD\n");
+        menu.append("5 - Progression\n");
         menu.append("0 - Exit\n");
         menu.append("Your choice: ");
 

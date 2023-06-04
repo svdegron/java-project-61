@@ -11,3 +11,6 @@
 
 **GCD**
 [![asciicast](https://asciinema.org/a/ukKCVtGNFFikBli81eH1UeBb8.svg)](https://asciinema.org/a/ukKCVtGNFFikBli81eH1UeBb8)
+
+**Progression**
+[![asciicast](https://asciinema.org/a/bJmpaX4RuJSdHULPCMFz592Q9.svg)](https://asciinema.org/a/bJmpaX4RuJSdHULPCMFz592Q9)
