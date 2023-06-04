@@ -14,3 +14,6 @@
 
 **Progression**
 [![asciicast](https://asciinema.org/a/bJmpaX4RuJSdHULPCMFz592Q9.svg)](https://asciinema.org/a/bJmpaX4RuJSdHULPCMFz592Q9)
+
+**Prime**
+[![asciicast](https://asciinema.org/a/b257vE2ND5NZSeIjqykls0hvH.svg)](https://asciinema.org/a/b257vE2ND5NZSeIjqykls0hvH)

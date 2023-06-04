@@ -5,6 +5,7 @@ import hexlet.code.games.Eval;
 import hexlet.code.games.Game;
 import hexlet.code.games.Gcd;
 import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class App {
@@ -38,6 +39,10 @@ public class App {
                 user = createUser(scanner);
                 game = new Progression(user, scanner);
                 break;
+            case 6:
+                user = createUser(scanner);
+                game = new Prime(user, scanner);
+                break;
             default:
                 System.out.println(String.format("Menu item with number \"%s\" is not in the list", chooseItem));
                 break;
@@ -59,6 +64,7 @@ public class App {
         menu.append("3 - Calc\n");
         menu.append("4 - GCD\n");
         menu.append("5 - Progression\n");
+        menu.append("6 - Prime\n");
         menu.append("0 - Exit\n");
         menu.append("Your choice: ");
 
