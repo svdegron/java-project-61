@@ -8,3 +8,6 @@
 
 **Calc**
 [![asciicast](https://asciinema.org/a/Vy9RxfVnTEJflMusJFsIJCgGA.svg)](https://asciinema.org/a/Vy9RxfVnTEJflMusJFsIJCgGA)
+
+**GCD**
+[![asciicast](https://asciinema.org/a/ukKCVtGNFFikBli81eH1UeBb8.svg)](https://asciinema.org/a/ukKCVtGNFFikBli81eH1UeBb8)
