@@ -1,73 +1,27 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
-
 import java.util.Random;
 import java.util.Scanner;
 
-public class Eval implements Game {
-    private final String description = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    private Cli player;
-    private Scanner scanner;
-    private String correctAnswer;
-    private String userAnswer;
-
-
-    public Eval(Cli player, Scanner scanner) {
-        this.player = player;
-        this.scanner = scanner;
-    }
-
-    public String getCorrectAnswer() {
-        return correctAnswer;
-    }
-
-    public String getUserAnswer() {
-        return userAnswer;
-    }
-
-    private void setCorrectAnswer(String correctAnswer) {
-        this.correctAnswer = correctAnswer;
-    }
-
-    private void setUserAnswer(String userAnswer) {
-        this.userAnswer = userAnswer;
-    }
-
-    public void printDescription() {
-        System.out.println(description);
-    }
-
-    @Override
-    public void printError() {
-        System.out.println(String.format("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again,"
-                + " %s!", getUserAnswer(), getCorrectAnswer(), player.name));
-    }
-
-    @Override
-    public String getPlayerName() {
-        return player.name;
-    }
-
-    private boolean equalsAnswer() {
-        return getCorrectAnswer().equals(getUserAnswer());
-    }
-
-    @Override
-    public boolean launch() {
+public class Eval {
+    public static boolean startGame(Scanner sc, String userName) {
+        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         Random rnd = new Random();
-        int currentNumber = rnd.nextInt(100);
-
-        System.out.print("Question: " + currentNumber + "\nYour answer: ");
-
-        setUserAnswer(scanner.next());
-
-        if (currentNumber % 2 == 0) {
-            setCorrectAnswer("yes");
+        int maxNum = 100;
+        int num = rnd.nextInt(maxNum);
+        System.out.print("Question: " + num + "\nYour answer: ");
+        String answer = "not ready";
+        if (num % 2 == 0) {
+            answer = "yes";
         } else {
-            setCorrectAnswer("no");
+            answer = "no";
         }
-
-        return equalsAnswer();
+        String userAnswer = sc.next();
+        boolean checkAnswer = userAnswer.equals(answer);
+        if (!checkAnswer) {
+            System.out.println(String.format("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again,"
+                    + " %s!", userAnswer, answer, userName));
+        }
+        return checkAnswer;
     }
 }
