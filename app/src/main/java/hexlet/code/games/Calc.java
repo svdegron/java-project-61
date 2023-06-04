@@ -41,12 +41,12 @@ public class Calc implements Game {
     @Override
     public void printError() {
         System.out.println(String.format("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again,"
-                + " %s!", getUserAnswer(), getCorrectAnswer(), player.getName()));
+                + " %s!", getUserAnswer(), getCorrectAnswer(), player.name));
     }
 
     @Override
     public String getPlayerName() {
-        return player.getName();
+        return player.name;
     }
 
     @Override

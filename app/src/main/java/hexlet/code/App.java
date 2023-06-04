@@ -78,7 +78,7 @@ public class App {
 
         Cli user = new Cli(userName);
 
-        System.out.println(String.format("Hello, %s!", user.getName()));
+        System.out.println(String.format("Hello, %s!", user.name));
 
         return user;
     }
