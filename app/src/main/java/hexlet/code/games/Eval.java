@@ -7,7 +7,7 @@ public class Eval {
     public static boolean startGame(Scanner sc, String userName) {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         Random rnd = new Random();
-        int maxNum = 100;
+        final int maxNum = 100;
         int num = rnd.nextInt(maxNum);
         System.out.print("Question: " + num + "\nYour answer: ");
         String answer = "not ready";

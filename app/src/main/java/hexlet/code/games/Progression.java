@@ -7,8 +7,8 @@ public class Progression {
     public static boolean startGame(Scanner sc, String userName) {
         System.out.println("What number is missing in the progression?");
         Random rnd = new Random();
-        int minLength = 5;
-        int maxLength = 10;
+        final int minLength = 5;
+        final int maxLength = 10;
         int countProgression = rnd.nextInt(minLength, maxLength);
         int hideElement = rnd.nextInt(countProgression);
         int startProgression = rnd.nextInt(maxLength);

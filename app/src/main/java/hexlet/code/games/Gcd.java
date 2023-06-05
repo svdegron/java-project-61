@@ -7,8 +7,8 @@ public class Gcd {
     public static boolean startGame(Scanner sc, String userName) {
         System.out.println("Find the greatest common divisor of given numbers.");
         Random rnd = new Random();
-        int minNumber = 10;
-        int maxNumber = 100;
+        final int minNumber = 10;
+        final int maxNumber = 100;
         int firstNumber = rnd.nextInt(minNumber, maxNumber);
         int secondNumber = rnd.nextInt(minNumber, maxNumber);
         System.out.print("Question: " + firstNumber + " " + secondNumber +  "\nYour answer: ");

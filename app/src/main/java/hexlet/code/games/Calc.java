@@ -7,10 +7,10 @@ public class Calc {
     public static boolean startGame(Scanner sc, String userName) {
         System.out.println("What is the result of the expression?");
         Random rnd = new Random();
-        int maxNum = 100;
+        final int maxNum = 100;
         int firstNumber = rnd.nextInt(maxNum);
         int secondNumber = rnd.nextInt(maxNum);
-        int probability = 3;
+        final int probability = 3;
         int chooseOperation = rnd.nextInt(maxNum) % probability;
         char operation = '?';
         int answer = 0;

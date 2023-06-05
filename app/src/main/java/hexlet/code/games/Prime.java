@@ -18,7 +18,7 @@ public class Prime {
     public static boolean startGame(Scanner sc, String userName) {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         Random rnd = new Random();
-        int lastNumber = 32;
+        final int lastNumber = 32;
         int currentNumber = rnd.nextInt(lastNumber);
         System.out.print("Question: " + currentNumber +  "\nYour answer: ");
         String answer = isPrime(currentNumber);
