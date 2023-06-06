@@ -3,10 +3,23 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        // Вывод меню
         printMenu();
-        Engine.chooseGame(scanner);
-        scanner.close();
+        // Выбор игры
+        String gameNumber = scanner.next();
+        // Обработка ввода 0, 1 и точка входа в игры
+        switch (gameNumber) {
+            case "0": break;
+            case "1":
+                Cli.greeting(scanner);
+                break;
+            default:
+                //
+                Engine.chooseGame(scanner, gameNumber);
+                break;
+        }
 
+        scanner.close();
     }
     public static void printMenu() {
         StringBuilder menu = new StringBuilder();
