@@ -1,7 +1,6 @@
 package hexlet.code;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Eval;
-import hexlet.code.games.ExampleNewGame;
 import hexlet.code.games.Gcd;
 import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
@@ -42,9 +41,6 @@ public class App {
             case "6":
                 Prime.begin(scanner);
                 break;
-            case "7":
-                ExampleNewGame.begin(scanner);
-                break;
             default:
                 // по умолчанию - выход
                 break;
@@ -61,7 +57,6 @@ public class App {
         menu.append("4 - GCD\n");
         menu.append("5 - Progression\n");
         menu.append("6 - Prime\n");
-        menu.append("7 - Example\n");
         menu.append("0 - Exit\n");
         menu.append("Your choice: ");
         System.out.print(menu.toString());
