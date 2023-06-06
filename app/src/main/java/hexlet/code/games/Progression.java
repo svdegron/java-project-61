@@ -15,7 +15,7 @@ public class Progression {
         final int answer = 1;
         Random generate = new Random();
         final int maxNumber = 100;
-        final int minLength = 5;
+        final int minLength = 6;
         final int maxLength = 10;
 
         // Генерируем вопрос-ответ
