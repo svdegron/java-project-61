@@ -41,7 +41,7 @@ public class Progression {
                 temp += progressionStep;
             }
 
-            content[round][question] = String.format("Question: %s\nYour answer: ", progressionLine.toString());
+            content[round][question] = String.format("Question:%s\nYour answer: ", progressionLine.toString());
         }
 
         // Вызываем основную логику - движок игры
