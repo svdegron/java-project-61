@@ -29,6 +29,9 @@ public class Engine {
 
             if (repeat) {
                 System.out.println("Correct!");
+            } else {
+                System.out.println(String.format("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again,"
+                        + " %s!", userAnswer, content[round][answer], userName));
             }
 
             round++;

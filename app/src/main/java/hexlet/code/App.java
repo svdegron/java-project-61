@@ -1,32 +1,52 @@
 package hexlet.code;
+import hexlet.code.games.Calc;
 import hexlet.code.games.Eval;
 import hexlet.code.games.ExampleNewGame;
+import hexlet.code.games.Gcd;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
         // Вывод меню
         printMenu();
+
         // Выбор игры
         String gameNumber = scanner.next();
+
         // Обработка ввода 0, 1 и точка входа в игры
         switch (gameNumber) {
             case "0":
                 // Выход
                 break;
+            // Приветствие
             case "1":
                 Cli.greeting(scanner);
                 break;
+            // Игры
             case "2":
                 Eval.begin(scanner);
+                break;
+            case "3":
+                Calc.begin(scanner);
+                break;
+            case "4":
+                Gcd.begin(scanner);
+                break;
+            case "5":
+                Progression.begin(scanner);
+                break;
+            case "6":
+                Prime.begin(scanner);
                 break;
             case "7":
                 ExampleNewGame.begin(scanner);
                 break;
             default:
-                //
-                Engine.chooseGame(scanner, gameNumber);
+                // по умолчанию - выход
                 break;
         }
 
