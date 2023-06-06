@@ -1,4 +1,7 @@
 package hexlet.code;
+import hexlet.code.games.Eval;
+import hexlet.code.games.ExampleNewGame;
+
 import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
@@ -9,9 +12,17 @@ public class App {
         String gameNumber = scanner.next();
         // Обработка ввода 0, 1 и точка входа в игры
         switch (gameNumber) {
-            case "0": break;
+            case "0":
+                // Выход
+                break;
             case "1":
                 Cli.greeting(scanner);
+                break;
+            case "2":
+                Eval.begin(scanner);
+                break;
+            case "7":
+                ExampleNewGame.begin(scanner);
                 break;
             default:
                 //
@@ -30,6 +41,7 @@ public class App {
         menu.append("4 - GCD\n");
         menu.append("5 - Progression\n");
         menu.append("6 - Prime\n");
+        menu.append("7 - Example\n");
         menu.append("0 - Exit\n");
         menu.append("Your choice: ");
         System.out.print(menu.toString());
