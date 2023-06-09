@@ -3,6 +3,8 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
+    public static final int QUESTION = 0;
+    public static final int ANSWER = 1;
 
     public static void start(String[][] contents, String description) {
         Scanner scanner = new Scanner(System.in);
@@ -12,18 +14,15 @@ public class Engine {
         System.out.println(description);
 
         for (String[] content: contents) {
-            final int question = 0;
-            final int answer = 1;
-
-            System.out.print(content[question]);
+            System.out.print(content[QUESTION]);
 
             String userAnswer = scanner.next();
 
-            if (userAnswer.equals(content[answer])) {
+            if (userAnswer.equals(content[ANSWER])) {
                 System.out.println("Correct!");
             } else {
                 System.out.println(String.format("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again,"
-                        + " %s!", userAnswer, content[answer], userName));
+                        + " %s!", userAnswer, content[ANSWER], userName));
                 return;
             }
         }
