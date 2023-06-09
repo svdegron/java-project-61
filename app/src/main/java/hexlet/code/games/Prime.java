@@ -20,7 +20,8 @@ public class Prime {
         return "yes";
     }
 
-    public static void begin(Scanner scanner) {
+    public static void begin() {
+        Scanner scanner = new Scanner(System.in);
         final String description = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         final int countRounds = 3;
         final int structure = 2;
@@ -39,6 +40,6 @@ public class Prime {
         }
 
         // Вызываем основную логику - движок игры
-        Engine.start(content, description, scanner);
+        Engine.start(content, description);
     }
 }

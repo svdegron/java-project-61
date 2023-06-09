@@ -6,7 +6,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Gcd {
-    public static void begin(Scanner scanner) {
+    public static void begin() {
+        Scanner scanner = new Scanner(System.in);
         final String description = "Find the greatest common divisor of given numbers.";
         final int countRounds = 3;
         final int structure = 2;
@@ -38,6 +39,6 @@ public class Gcd {
             content[round][answer] = String.valueOf(max);
         }
         // Вызываем основную логику - движок игры
-        Engine.start(content, description, scanner);
+        Engine.start(content, description);
     }
 }

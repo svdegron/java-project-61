@@ -6,7 +6,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Calc {
-    public static void begin(Scanner scanner) {
+    public static void begin() {
+        Scanner scanner = new Scanner(System.in);
         final String description = "What is the result of the expression?";
         final int countRounds = 3;
         final int structure = 2;
@@ -46,6 +47,6 @@ public class Calc {
         }
 
         // Вызываем основную логику - движок игры
-        Engine.start(content, description, scanner);
+        Engine.start(content, description);
     }
 }

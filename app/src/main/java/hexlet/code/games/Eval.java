@@ -6,7 +6,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Eval {
-    public static void begin(Scanner scanner) {
+    public static void begin() {
+        Scanner scanner = new Scanner(System.in);
         final String description = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         final int countRounds = 3;
         final int structure = 2;
@@ -30,6 +31,6 @@ public class Eval {
         }
 
         // Вызываем основную логику - движок игры
-        Engine.start(content, description, scanner);
+        Engine.start(content, description);
     }
 }

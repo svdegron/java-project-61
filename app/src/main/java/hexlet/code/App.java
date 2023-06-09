@@ -23,23 +23,23 @@ public class App {
                 break;
             // Приветствие
             case "1":
-                Cli.greeting(scanner);
+                Cli.greeting();
                 break;
             // Игры
             case "2":
-                Eval.begin(scanner);
+                Eval.begin();
                 break;
             case "3":
-                Calc.begin(scanner);
+                Calc.begin();
                 break;
             case "4":
-                Gcd.begin(scanner);
+                Gcd.begin();
                 break;
             case "5":
-                Progression.begin(scanner);
+                Progression.begin();
                 break;
             case "6":
-                Prime.begin(scanner);
+                Prime.begin();
                 break;
             default:
                 // по умолчанию - выход

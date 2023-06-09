@@ -6,7 +6,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Progression {
-    public static void begin(Scanner scanner) {
+    public static void begin() {
+        Scanner scanner = new Scanner(System.in);
         final String description = "What number is missing in the progression?";
         final int countRounds = 3;
         final int structure = 2;
@@ -45,6 +46,6 @@ public class Progression {
         }
 
         // Вызываем основную логику - движок игры
-        Engine.start(content, description, scanner);
+        Engine.start(content, description);
     }
 }
