@@ -7,8 +7,6 @@ import java.util.Scanner;
 
 public class Eval {
     public static final String DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    public static final int QUESTION = 0;
-    public static final int ANSWER = 1;
     public static final int MAX_NUMBER = 100;
 
     public static String isEven(int num) {
@@ -22,8 +20,8 @@ public class Eval {
     public static String[] generateRoundData(int num) {
         String[] dataset = new String[Engine.COUNT_DATA];
 
-        dataset[QUESTION] = String.format("Question: %s\nYour answer: ", num);
-        dataset[ANSWER] = isEven(num);
+        dataset[Engine.QUESTION] = String.format("Question: %s\nYour answer: ", num);
+        dataset[Engine.ANSWER] = isEven(num);
 
         return dataset;
     }
