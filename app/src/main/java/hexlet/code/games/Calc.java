@@ -3,50 +3,51 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class Calc {
-    public static void begin() {
-        Scanner scanner = new Scanner(System.in);
-        final String description = "What is the result of the expression?";
-        final int countRounds = 3;
-        final int structure = 2;
-        String[][] content = new String[countRounds][structure];
-        final int question = 0;
-        final int answer = 1;
+    public static final String DESCRIPTION = "What is the result of the expression?";
+    public static final int QUESTION = 0;
+    public static final int ANSWER = 1;
+    public static final int MAX_NUMBER = 10;
+    public static final int PROBABILITY = 3;
+
+//    public static final char[] OPERATIONS = new char[] {"Addition", "Subtraction", "Multiplication"};
+    public static final char[] OPERATIONS = new char[] {'+', '-', '*'};
+
+    public static String resultExpression(char operation, int firstNum, int secondNum) {
+        if (operation == '+') {
+            return String.valueOf(firstNum + secondNum);
+        } else if (operation == '-') {
+            return String.valueOf(firstNum - secondNum);
+        } else {
+            return String.valueOf(firstNum * secondNum);
+        }
+    }
+
+    public static String[] generateRoundData() {
+        String[] dataset = new String[Engine.COUNT_DATA];
         Random generate = new Random();
-        final int maxNumber = 10;
+
+        char operation = OPERATIONS[generate.nextInt(PROBABILITY) % PROBABILITY];
+        int firstNum = generate.nextInt(MAX_NUMBER);
+        int secondNum = generate.nextInt(MAX_NUMBER);
+        String expression = String.format("%s %s %s", firstNum, operation, secondNum);
+
+        dataset[QUESTION] = String.format("Question: %s\nYour answer: ", expression);
+        dataset[ANSWER] = resultExpression(operation, firstNum, secondNum);
+
+        return dataset;
+    }
+
+    public static void begin() {
+        String[][] contents = new String[Engine.COUNT_ROUNDS][];
 
         // Генерируем вопрос-ответ
-        for (int round = 0; round < countRounds; round++) {
-            int firstNumber = generate.nextInt(maxNumber);
-            int secondNumber = generate.nextInt(maxNumber);
-            final int probability = 3;
-            int chooseOperation = generate.nextInt(maxNumber) % probability;
-            String expression = "";
-            int result = 0;
-
-            switch (chooseOperation) {
-                case 0:
-                    expression = String.format("%s + %s", firstNumber, secondNumber);
-                    result = firstNumber + secondNumber;
-                    break;
-                case 1:
-                    expression = String.format("%s - %s", firstNumber, secondNumber);
-                    result = firstNumber - secondNumber;
-                    break;
-                case 2:
-                    expression = String.format("%s * %s", firstNumber, secondNumber);
-                    result = firstNumber * secondNumber;
-                    break;
-                default:break;
-            }
-
-            content[round][question] = String.format("Question: %s\nYour answer: ", expression);
-            content[round][answer] = String.valueOf(result);
+        for (int round = 0; round < Engine.COUNT_ROUNDS; round++) {
+            contents[round] = generateRoundData();
         }
 
         // Вызываем основную логику - движок игры
-        Engine.start(content, description);
+        Engine.start(contents, DESCRIPTION);
     }
 }

@@ -6,31 +6,39 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Eval {
+    public static final String DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    public static final int QUESTION = 0;
+    public static final int ANSWER = 1;
+    public static final int MAX_NUMBER = 100;
+
+    public static String isEven(int num) {
+        if (num % 2 == 0) {
+            return "yes";
+        }
+
+        return "no";
+    }
+
+    public static String[] generateRoundData(int num) {
+        String[] dataset = new String[Engine.COUNT_DATA];
+
+        dataset[QUESTION] = String.format("Question: %s\nYour answer: ", num);
+        dataset[ANSWER] = isEven(num);
+
+        return dataset;
+    }
+
     public static void begin() {
         Scanner scanner = new Scanner(System.in);
-        final String description = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        final int countRounds = 3;
-        final int structure = 2;
-        String[][] content = new String[countRounds][structure];
-        final int question = 0;
-        final int answer = 1;
+        String[][] contents = new String[Engine.COUNT_ROUNDS][];
         Random generate = new Random();
-        final int maxNumber = 100;
 
         // Генерируем вопрос-ответ
-        for (int round = 0; round < countRounds; round++) {
-            int currentNumber = generate.nextInt(maxNumber);
-
-            content[round][question] = String.format("Question: %s\nYour answer: ", currentNumber);
-
-            if (currentNumber % 2 == 0) {
-                content[round][answer] = "yes";
-            } else {
-                content[round][answer] = "no";
-            }
+        for (int round = 0; round < Engine.COUNT_ROUNDS; round++) {
+            contents[round] = generateRoundData(generate.nextInt(MAX_NUMBER));
         }
 
         // Вызываем основную логику - движок игры
-        Engine.start(content, description);
+        Engine.start(contents, DESCRIPTION);
     }
 }

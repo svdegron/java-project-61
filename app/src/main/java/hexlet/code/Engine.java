@@ -3,6 +3,8 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
+    public static final int COUNT_ROUNDS = 3;
+    public static final int COUNT_DATA = 2;
     public static final int QUESTION = 0;
     public static final int ANSWER = 1;
 
