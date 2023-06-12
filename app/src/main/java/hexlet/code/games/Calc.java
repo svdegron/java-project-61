@@ -20,14 +20,12 @@ public class Calc {
         }
     }
 
-    public static String[] generateRoundData() {
+    public static String[] generateRoundData(int num1, int num2) {
         String[] dataset = new String[Engine.COUNT_DATA];
 
         char operation = OPERATIONS[Utils.randomNum(PROBABILITY) % PROBABILITY];
-        int num1 = Utils.randomNum();
-        int num2 = Utils.randomNum();
 
-        dataset[Engine.QUESTION] = String.format("Question: %s %s %s\"\nYour answer: ", num1, operation, num2);
+        dataset[Engine.QUESTION] = String.format("Question: %s %s %s\nYour answer: ", num1, operation, num2);
         dataset[Engine.ANSWER] = resultExpression(operation, num1, num2);
 
         return dataset;
@@ -38,7 +36,7 @@ public class Calc {
 
         // Генерируем вопрос-ответ
         for (int round = 0; round < Engine.COUNT_ROUNDS; round++) {
-            contents[round] = generateRoundData();
+            contents[round] = generateRoundData(Utils.randomNum(), Utils.randomNum());
         }
 
         // Вызываем основную логику - движок игры

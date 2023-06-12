@@ -8,34 +8,45 @@ public class Progression {
     public static final int MIN_LENGTH = 5;
     public static final int MAX_LENGTH = 10;
 
+    public static int[] createProgression(int length) {
+        int[] numbers = new int[length];
+        // шаг не меньше минимального зачения
+        int step = Utils.randomNum();
+        // начало от 0 до max
+        numbers[0] = Utils.randomNum(Engine.MAX_NUMBER);
+
+        for (int index = 1; index < length; index++) {
+            numbers[index] = numbers[index - 1] + step;
+        }
+
+        return numbers;
+    }
+
+    public static String[] generateRoundData(int[] progression) {
+        String[] dataset = new String[Engine.COUNT_DATA];
+        StringBuilder line = new StringBuilder();
+        int hide = progression[progression.length - Utils.randomNum(progression.length) - 1];
+
+        for (int num: progression) {
+            if (hide != num) {
+                line.append(" " + num);
+            } else {
+                line.append(" ..");
+            }
+        }
+
+        dataset[Engine.QUESTION] = String.format("Question:%s\nYour answer: ", line.toString());
+        dataset[Engine.ANSWER] = String.valueOf(hide);
+
+        return dataset;
+    }
+
     public static void begin() {
-        String[][] contents = new String[Engine.COUNT_ROUNDS][Engine.COUNT_DATA];
+        String[][] contents = new String[Engine.COUNT_ROUNDS][];
 
         // Генерируем вопрос-ответ
         for (int round = 0; round < Engine.COUNT_ROUNDS; round++) {
-
-            int progressionBegin = Utils.randomNum(MAX_LENGTH);
-            int progressionStep = Utils.randomNum(Engine.MAX_NUMBER);
-            int progressionLength = Utils.randomNum(MIN_LENGTH, MAX_LENGTH);
-            StringBuilder progressionLine = new StringBuilder();
-
-            progressionLine.append(" " + progressionBegin);
-
-            int hide = Utils.randomNum(progressionLength);
-            int temp = progressionBegin + progressionStep;
-
-            for (int next = 0; next < progressionLength; next++) {
-                if (next != hide) {
-                    progressionLine.append(" " + temp);
-                } else {
-                    progressionLine.append(" ..");
-                    contents[round][Engine.ANSWER] = String.valueOf(temp);
-                }
-
-                temp += progressionStep;
-            }
-
-            contents[round][Engine.QUESTION] = String.format("Question:%s\nYour answer: ", progressionLine.toString());
+            contents[round] = generateRoundData(createProgression(Utils.randomNum(MIN_LENGTH, MAX_LENGTH)));
         }
 
         // Вызываем основную логику - движок игры

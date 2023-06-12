@@ -20,18 +20,24 @@ public class Prime {
         return "yes";
     }
 
+    public static String[] generateRoundData(int num) {
+        String[] dataset = new String[Engine.COUNT_DATA];
+
+        dataset[Engine.QUESTION] = String.format("Question: %s\nYour answer: ", num);
+        dataset[Engine.ANSWER] = isPrime(num);
+
+        return dataset;
+    }
+
     public static void begin() {
-        String[][] content = new String[Engine.COUNT_ROUNDS][Engine.COUNT_DATA];
+        String[][] contents = new String[Engine.COUNT_ROUNDS][];
 
         // Генерируем вопрос-ответ
         for (int round = 0; round < Engine.COUNT_ROUNDS; round++) {
-            int currentNumber = Utils.randomNum();
-
-            content[round][Engine.QUESTION] = String.format("Question: %s\nYour answer: ", currentNumber);
-            content[round][Engine.ANSWER] = isPrime(currentNumber);
+            contents[round] = generateRoundData(Utils.randomNum(Engine.MAX_NUMBER));
         }
 
         // Вызываем основную логику - движок игры
-        Engine.start(content, DESCRIPTION);
+        Engine.start(contents, DESCRIPTION);
     }
 }
