@@ -3,9 +3,6 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import java.util.Random;
-import java.util.Scanner;
-
 public class Prime {
     public static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
@@ -24,7 +21,6 @@ public class Prime {
     }
 
     public static void begin() {
-        Scanner scanner = new Scanner(System.in);
         String[][] content = new String[Engine.COUNT_ROUNDS][Engine.COUNT_DATA];
 
         // Генерируем вопрос-ответ

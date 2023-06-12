@@ -3,15 +3,12 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import java.util.Scanner;
-
 public class Progression {
     public static final String DESCRIPTION = "What number is missing in the progression?";
     public static final int MIN_LENGTH = 5;
     public static final int MAX_LENGTH = 10;
 
     public static void begin() {
-        Scanner scanner = new Scanner(System.in);
         String[][] contents = new String[Engine.COUNT_ROUNDS][Engine.COUNT_DATA];
 
         // Генерируем вопрос-ответ
