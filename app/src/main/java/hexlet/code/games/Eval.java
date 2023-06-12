@@ -1,13 +1,13 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class Eval {
     public static final String DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    public static final int MAX_NUMBER = 100;
 
     public static String isEven(int num) {
         if (num % 2 == 0) {
@@ -33,7 +33,8 @@ public class Eval {
 
         // Генерируем вопрос-ответ
         for (int round = 0; round < Engine.COUNT_ROUNDS; round++) {
-            contents[round] = generateRoundData(generate.nextInt(MAX_NUMBER));
+//            contents[round] = generateRoundData(generate.nextInt(MAX_NUMBER));
+            contents[round] = generateRoundData(Utils.randomNum());
         }
 
         // Вызываем основную логику - движок игры

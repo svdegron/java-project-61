@@ -1,30 +1,25 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class Gcd {
+    public static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
+
     public static void begin() {
         Scanner scanner = new Scanner(System.in);
-        final String description = "Find the greatest common divisor of given numbers.";
-        final int countRounds = 3;
-        final int structure = 2;
-        String[][] content = new String[countRounds][structure];
-        final int question = 0;
-        final int answer = 1;
-        Random generate = new Random();
-        final int minNumber = 10;
-        final int maxNumber = 100;
+        String[][] contents = new String[Engine.COUNT_ROUNDS][Engine.COUNT_DATA];
 
         // Генерируем вопрос-ответ
-        for (int round = 0; round < countRounds; round++) {
+        for (int round = 0; round < Engine.COUNT_ROUNDS; round++) {
 
-            int firstNumber = generate.nextInt(minNumber, maxNumber);
-            int secondNumber = generate.nextInt(minNumber, maxNumber);
+            int firstNumber = Utils.randomNum();
+            int secondNumber = Utils.randomNum();
 
-            content[round][question] = String.format("Question: %s %s\nYour answer: ", firstNumber, secondNumber);
+            contents[round][Engine.QUESTION] = String.format("Question: %s %s\nYour answer: ", firstNumber, secondNumber);
 
             int max = Math.max(firstNumber, secondNumber);
             int min = Math.min(firstNumber, secondNumber);
@@ -36,9 +31,9 @@ public class Gcd {
                 min = gcd;
             } while (gcd != 0);
 
-            content[round][answer] = String.valueOf(max);
+            contents[round][Engine.ANSWER] = String.valueOf(max);
         }
         // Вызываем основную логику - движок игры
-        Engine.start(content, description);
+        Engine.start(contents, DESCRIPTION);
     }
 }

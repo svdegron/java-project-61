@@ -42,8 +42,7 @@ public class App {
                 Prime.begin();
                 break;
             default:
-                // по умолчанию - выход
-                break;
+                throw new Error(String.format("Unknown menu item \"%s\"!", gameNumber));
         }
 
         scanner.close();

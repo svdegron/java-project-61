@@ -1,34 +1,30 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Progression {
+    public static final String DESCRIPTION = "What number is missing in the progression?";
+    public static final int MIN_LENGTH = 5;
+    public static final int MAX_LENGTH = 10;
+
     public static void begin() {
         Scanner scanner = new Scanner(System.in);
-        final String description = "What number is missing in the progression?";
-        final int countRounds = 3;
-        final int structure = 2;
-        String[][] content = new String[countRounds][structure];
-        final int question = 0;
-        final int answer = 1;
-        Random generate = new Random();
-        final int maxNumber = 100;
-        final int minLength = 6;
-        final int maxLength = 10;
+        String[][] contents = new String[Engine.COUNT_ROUNDS][Engine.COUNT_DATA];
 
         // Генерируем вопрос-ответ
-        for (int round = 0; round < countRounds; round++) {
-            int progressionBegin = generate.nextInt(maxLength);
-            int progressionStep = generate.nextInt(maxLength);
-            int progressionLength = generate.nextInt(minLength, maxLength);
+        for (int round = 0; round < Engine.COUNT_ROUNDS; round++) {
+
+            int progressionBegin = Utils.randomNum(MAX_LENGTH);
+            int progressionStep = Utils.randomNum(Engine.MAX_NUMBER);
+            int progressionLength = Utils.randomNum(MIN_LENGTH, MAX_LENGTH);
             StringBuilder progressionLine = new StringBuilder();
 
             progressionLine.append(" " + progressionBegin);
 
-            int hide = generate.nextInt(progressionLength);
+            int hide = Utils.randomNum(progressionLength);
             int temp = progressionBegin + progressionStep;
 
             for (int next = 0; next < progressionLength; next++) {
@@ -36,16 +32,16 @@ public class Progression {
                     progressionLine.append(" " + temp);
                 } else {
                     progressionLine.append(" ..");
-                    content[round][answer] = String.valueOf(temp);
+                    contents[round][Engine.ANSWER] = String.valueOf(temp);
                 }
 
                 temp += progressionStep;
             }
 
-            content[round][question] = String.format("Question:%s\nYour answer: ", progressionLine.toString());
+            contents[round][Engine.QUESTION] = String.format("Question:%s\nYour answer: ", progressionLine.toString());
         }
 
         // Вызываем основную логику - движок игры
-        Engine.start(content, description);
+        Engine.start(contents, DESCRIPTION);
     }
 }

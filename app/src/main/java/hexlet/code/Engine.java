@@ -7,6 +7,8 @@ public class Engine {
     public static final int COUNT_DATA = 2;
     public static final int QUESTION = 0;
     public static final int ANSWER = 1;
+    public static final int MIN_NUMBER = 10;
+    public static final int MAX_NUMBER = 100;
 
     public static void start(String[][] contents, String description) {
         Scanner scanner = new Scanner(System.in);

@@ -1,11 +1,14 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class Prime {
+    public static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+
     public static String isPrime(int num) {
         if (num == 0 || num == 1) {
             return "no";
@@ -22,24 +25,17 @@ public class Prime {
 
     public static void begin() {
         Scanner scanner = new Scanner(System.in);
-        final String description = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        final int countRounds = 3;
-        final int structure = 2;
-        String[][] content = new String[countRounds][structure];
-        final int question = 0;
-        final int answer = 1;
-        Random generate = new Random();
-        final int maxNumber = 100;
+        String[][] content = new String[Engine.COUNT_ROUNDS][Engine.COUNT_DATA];
 
         // Генерируем вопрос-ответ
-        for (int round = 0; round < countRounds; round++) {
-            int currentNumber = generate.nextInt(maxNumber);
+        for (int round = 0; round < Engine.COUNT_ROUNDS; round++) {
+            int currentNumber = Utils.randomNum();
 
-            content[round][question] = String.format("Question: %s\nYour answer: ", currentNumber);
-            content[round][answer] = isPrime(currentNumber);
+            content[round][Engine.QUESTION] = String.format("Question: %s\nYour answer: ", currentNumber);
+            content[round][Engine.ANSWER] = isPrime(currentNumber);
         }
 
         // Вызываем основную логику - движок игры
-        Engine.start(content, description);
+        Engine.start(content, DESCRIPTION);
     }
 }
