@@ -28,17 +28,14 @@ Game examples:
 
 ### Eval
 * Try to determine the parity of a number ...
-
 [![asciicast](https://asciinema.org/a/04FXSJtBUMLMxZTGLQYvOThwl.svg)](https://asciinema.org/a/04FXSJtBUMLMxZTGLQYvOThwl)
 
 ### Calc
 * Show the piece of iron who is the calculator here ...
-
 [![asciicast](https://asciinema.org/a/Vy9RxfVnTEJflMusJFsIJCgGA.svg)](https://asciinema.org/a/Vy9RxfVnTEJflMusJFsIJCgGA)
 
 ### GCD
 * To be honest, I don't even know how it works ...
-
 [![asciicast](https://asciinema.org/a/ukKCVtGNFFikBli81eH1UeBb8.svg)](https://asciinema.org/a/ukKCVtGNFFikBli81eH1UeBb8)
 
 ### Progression
