@@ -6,18 +6,18 @@ import hexlet.code.Utils;
 public class Prime {
     public static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-    public static String isPrime(int num) {
+    public static boolean isPrime(int num) {
         if (num == 0 || num == 1) {
-            return "no";
+            return false;
         }
 
         for (int i = 2; i <= Math.sqrt(num); i++) {
             if (num % i == 0) {
-                return "no";
+                return false;
             }
         }
 
-        return "yes";
+        return true;
     }
 
     public static String[] generateRoundData() {
@@ -25,7 +25,7 @@ public class Prime {
         String[] dataset = new String[Engine.COUNT_DATA];
 
         dataset[Engine.QUESTION] = String.format("Question: %s\nYour answer: ", num);
-        dataset[Engine.ANSWER] = isPrime(num);
+        dataset[Engine.ANSWER] = isPrime(num) ? "yes" : "no";
 
         return dataset;
     }
