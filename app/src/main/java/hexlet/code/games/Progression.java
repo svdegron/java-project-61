@@ -22,7 +22,8 @@ public class Progression {
         return numbers;
     }
 
-    public static String[] generateRoundData(int[] progression) {
+    public static String[] generateRoundData() {
+        int[] progression = createProgression(Utils.randomNum(MIN_LENGTH, MAX_LENGTH));
         String[] dataset = new String[Engine.COUNT_DATA];
         StringBuilder line = new StringBuilder();
         int hide = progression[progression.length - Utils.randomNum(progression.length) - 1];
@@ -46,7 +47,7 @@ public class Progression {
 
         // Генерируем вопрос-ответ
         for (int round = 0; round < Engine.COUNT_ROUNDS; round++) {
-            contents[round] = generateRoundData(createProgression(Utils.randomNum(MIN_LENGTH, MAX_LENGTH)));
+            contents[round] = generateRoundData();
         }
 
         // Вызываем основную логику - движок игры

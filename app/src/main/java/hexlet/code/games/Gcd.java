@@ -14,7 +14,9 @@ public class Gcd {
         return gcdBy(num2, num1 % num2);
     }
 
-    public static String[] generateRoundData(int num1, int num2) {
+    public static String[] generateRoundData() {
+        int num1 = Utils.randomNum();
+        int num2 = Utils.randomNum();
         String[] dataset = new String[Engine.COUNT_DATA];
 
         dataset[Engine.QUESTION] = String.format("Question: %s %s\nYour answer: ", num1, num2);
@@ -28,7 +30,7 @@ public class Gcd {
 
         // Генерируем вопрос-ответ
         for (int round = 0; round < Engine.COUNT_ROUNDS; round++) {
-            contents[round] = generateRoundData(Utils.randomNum(), Utils.randomNum());
+            contents[round] = generateRoundData();
         }
         // Вызываем основную логику - движок игры
         Engine.start(contents, DESCRIPTION);

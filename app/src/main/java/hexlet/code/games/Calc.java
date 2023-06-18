@@ -20,7 +20,9 @@ public class Calc {
         }
     }
 
-    public static String[] generateRoundData(int num1, int num2) {
+    public static String[] generateRoundData() {
+        int num1 = Utils.randomNum();
+        int num2 = Utils.randomNum();
         String[] dataset = new String[Engine.COUNT_DATA];
 
         char operation = OPERATIONS[Utils.randomNum(PROBABILITY) % PROBABILITY];
@@ -36,7 +38,7 @@ public class Calc {
 
         // Генерируем вопрос-ответ
         for (int round = 0; round < Engine.COUNT_ROUNDS; round++) {
-            contents[round] = generateRoundData(Utils.randomNum(), Utils.randomNum());
+            contents[round] = generateRoundData();
         }
 
         // Вызываем основную логику - движок игры

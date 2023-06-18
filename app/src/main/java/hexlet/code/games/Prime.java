@@ -20,7 +20,8 @@ public class Prime {
         return "yes";
     }
 
-    public static String[] generateRoundData(int num) {
+    public static String[] generateRoundData() {
+        int num = Utils.randomNum(Engine.MAX_NUMBER);
         String[] dataset = new String[Engine.COUNT_DATA];
 
         dataset[Engine.QUESTION] = String.format("Question: %s\nYour answer: ", num);
@@ -34,7 +35,7 @@ public class Prime {
 
         // Генерируем вопрос-ответ
         for (int round = 0; round < Engine.COUNT_ROUNDS; round++) {
-            contents[round] = generateRoundData(Utils.randomNum(Engine.MAX_NUMBER));
+            contents[round] = generateRoundData();
         }
 
         // Вызываем основную логику - движок игры

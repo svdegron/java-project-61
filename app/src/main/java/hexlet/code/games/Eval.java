@@ -14,7 +14,8 @@ public class Eval {
         return "no";
     }
 
-    public static String[] generateRoundData(int num) {
+    public static String[] generateRoundData() {
+        int num = Utils.randomNum();
         String[] dataset = new String[Engine.COUNT_DATA];
 
         dataset[Engine.QUESTION] = String.format("Question: %s\nYour answer: ", num);
@@ -28,7 +29,7 @@ public class Eval {
 
         // Генерируем вопрос-ответ
         for (int round = 0; round < Engine.COUNT_ROUNDS; round++) {
-            contents[round] = generateRoundData(Utils.randomNum());
+            contents[round] = generateRoundData();
         }
 
         // Вызываем основную логику - движок игры
