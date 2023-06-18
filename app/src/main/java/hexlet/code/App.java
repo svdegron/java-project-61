@@ -16,29 +16,16 @@ public class App {
         // Выбор игры
         String option = scanner.next();
 
-        // Обработка ввода 0, 1 и точка входа в игры
         switch (option) {
-            // Выход
-            case "0":
-                break;
-            // Приветствие
-            case "1": Cli.greeting();
-                break;
-            // Игры
-            case "2": Eval.begin();
-                break;
-            case "3": Calc.begin();
-                break;
-            case "4": Gcd.begin();
-                break;
-            case "5": Progression.begin();
-                break;
-            case "6": Prime.begin();
-                break;
-            default: throw new RuntimeException("Unknown option: " + option);
+            case "0" -> scanner.close();
+            case "1" -> Cli.greeting();
+            case "2" -> Eval.begin();
+            case "3" -> Calc.begin();
+            case "4" -> Gcd.begin();
+            case "5" -> Progression.begin();
+            case "6" -> Prime.begin();
+            default -> throw new RuntimeException("Unknown option: " + option);
         }
-
-        scanner.close();
     }
     public static void printMenu() {
         StringBuilder menu = new StringBuilder();
