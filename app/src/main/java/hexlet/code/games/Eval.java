@@ -6,12 +6,8 @@ import hexlet.code.Utils;
 public class Eval {
     public static final String DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    public static String isEven(int num) {
-        if (num % 2 == 0) {
-            return "yes";
-        }
-
-        return "no";
+    public static boolean isEven(int num) {
+        return num % 2 == 0;
     }
 
     public static String[] generateRoundData() {
@@ -19,7 +15,7 @@ public class Eval {
         String[] dataset = new String[Engine.COUNT_DATA];
 
         dataset[Engine.QUESTION] = String.format("Question: %s\nYour answer: ", num);
-        dataset[Engine.ANSWER] = isEven(num);
+        dataset[Engine.ANSWER] = isEven(num) ? "yes" : "no";
 
         return dataset;
     }
