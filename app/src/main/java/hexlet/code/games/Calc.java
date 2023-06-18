@@ -9,14 +9,15 @@ public class Calc {
     public static final int PROBABILITY = OPERATIONS.length;
 
     public static String resultExpression(char operation, int num1, int num2) {
-        if (operation == '+') {
-            return String.valueOf(num1 + num2);
-        } else if (operation == '-') {
-            return String.valueOf(num1 - num2);
-        } else if (operation == '*') {
-            return String.valueOf(num1 * num2);
-        } else {
-            throw new Error(String.format("Unknown operation \"%s\"!", operation));
+        switch (operation) {
+            case '+':
+                return String.valueOf(num1 + num2);
+            case '-':
+                return String.valueOf(num1 - num2);
+            case '*':
+                return String.valueOf(num1 * num2);
+            default:
+                throw new Error(String.format("Unknown operation \"%s\"!", operation));
         }
     }
 
