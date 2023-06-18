@@ -8,31 +8,28 @@ public class Progression {
     public static final int MIN_LENGTH = 5;
     public static final int MAX_LENGTH = 10;
 
-    public static int[] createProgression(int length) {
-        int[] numbers = new int[length];
-        // шаг не меньше минимального зачения
-        int step = Utils.randomNum();
-        // начало от 0 до max
-        numbers[0] = Utils.randomNum(Engine.MAX_NUMBER);
+    public static String[] getProgression(int num, int step, int length) {
+        String[] numbers = new String[length];
 
-        for (int index = 1; index < length; index++) {
-            numbers[index] = numbers[index - 1] + step;
+        for (int index = 0; index < length; index++) {
+            numbers[index] = Integer.toString(num + step * index);
         }
 
         return numbers;
     }
 
     public static String[] generateRoundData() {
-        int[] progression = createProgression(Utils.randomNum(MIN_LENGTH, MAX_LENGTH));
+        int length = Utils.randomNum(MIN_LENGTH, MAX_LENGTH);
+        String[] progression = getProgression(Utils.randomNum(Engine.MAX_NUMBER), Utils.randomNum(), length);
         String[] dataset = new String[Engine.COUNT_DATA];
         StringBuilder line = new StringBuilder();
-        int hide = progression[progression.length - Utils.randomNum(progression.length) - 1];
+        String hide = progression[length - Utils.randomNum(length) - 1];
 
-        for (int num: progression) {
-            if (hide != num) {
-                line.append(" " + num);
-            } else {
+        for (String num: progression) {
+            if (hide.equals(num)) {
                 line.append(" ..");
+            } else {
+                line.append(" " + num);
             }
         }
 
