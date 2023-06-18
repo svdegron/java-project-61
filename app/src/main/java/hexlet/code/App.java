@@ -14,35 +14,28 @@ public class App {
         printMenu();
 
         // Выбор игры
-        String gameNumber = scanner.next();
+        String option = scanner.next();
 
         // Обработка ввода 0, 1 и точка входа в игры
-        switch (gameNumber) {
+        switch (option) {
+            // Выход
             case "0":
-                // Выход
                 break;
             // Приветствие
-            case "1":
-                Cli.greeting();
+            case "1": Cli.greeting();
                 break;
             // Игры
-            case "2":
-                Eval.begin();
+            case "2": Eval.begin();
                 break;
-            case "3":
-                Calc.begin();
+            case "3": Calc.begin();
                 break;
-            case "4":
-                Gcd.begin();
+            case "4": Gcd.begin();
                 break;
-            case "5":
-                Progression.begin();
+            case "5": Progression.begin();
                 break;
-            case "6":
-                Prime.begin();
+            case "6": Prime.begin();
                 break;
-            default:
-                throw new Error(String.format("Unknown menu item \"%s\"!", gameNumber));
+            default: throw new RuntimeException("Unknown option: " + option);
         }
 
         scanner.close();
