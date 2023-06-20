@@ -28,7 +28,7 @@ public class Calc {
 
         char operation = OPERATIONS[Utils.randomNum(PROBABILITY) % PROBABILITY];
 
-        dataset[Engine.QUESTION] = String.format("Question: %s %s %s\nYour answer: ", num1, operation, num2);
+        dataset[Engine.QUESTION] = String.format("%s %s %s", num1, operation, num2);
         dataset[Engine.ANSWER] = resultExpression(operation, num1, num2);
 
         return dataset;

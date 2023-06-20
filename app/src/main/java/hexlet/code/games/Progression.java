@@ -27,13 +27,13 @@ public class Progression {
 
         for (String num: progression) {
             if (hide.equals(num)) {
-                line.append(" ..");
+                line.append(".. ");
             } else {
-                line.append(" " + num);
+                line.append(num + " ");
             }
         }
 
-        dataset[Engine.QUESTION] = String.format("Question:%s\nYour answer: ", line.toString());
+        dataset[Engine.QUESTION] = line.toString().replaceAll(".$", "");
         dataset[Engine.ANSWER] = String.valueOf(hide);
 
         return dataset;

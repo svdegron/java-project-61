@@ -24,7 +24,7 @@ public class Prime {
         int num = Utils.randomNum(Engine.MAX_NUMBER);
         String[] dataset = new String[Engine.COUNT_DATA];
 
-        dataset[Engine.QUESTION] = String.format("Question: %s\nYour answer: ", num);
+        dataset[Engine.QUESTION] = Integer.toString(num);
         dataset[Engine.ANSWER] = isPrime(num) ? "yes" : "no";
 
         return dataset;

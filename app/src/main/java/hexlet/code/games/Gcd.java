@@ -19,7 +19,7 @@ public class Gcd {
         int num2 = Utils.randomNum();
         String[] dataset = new String[Engine.COUNT_DATA];
 
-        dataset[Engine.QUESTION] = String.format("Question: %s %s\nYour answer: ", num1, num2);
+        dataset[Engine.QUESTION] = String.format("%s %s", num1, num2);
         dataset[Engine.ANSWER] = String.valueOf(gcdBy(num1, num2));
 
         return dataset;

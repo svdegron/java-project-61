@@ -18,7 +18,7 @@ public class Engine {
         System.out.println(description);
 
         for (String[] content: contents) {
-            System.out.print(content[QUESTION]);
+            System.out.print(String.format("Question: %s\nYour answer: ", content[QUESTION]));
 
             String userAnswer = scanner.next();
 
