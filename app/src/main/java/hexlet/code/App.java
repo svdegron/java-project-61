@@ -28,16 +28,14 @@ public class App {
         }
     }
     public static void printMenu() {
-        StringBuilder menu = new StringBuilder();
-        menu.append("Please enter the game number and press Enter.\n");
-        menu.append("1 - Greet\n");
-        menu.append("2 - Even\n");
-        menu.append("3 - Calc\n");
-        menu.append("4 - GCD\n");
-        menu.append("5 - Progression\n");
-        menu.append("6 - Prime\n");
-        menu.append("0 - Exit\n");
-        menu.append("Your choice: ");
-        System.out.print(menu.toString());
+        System.out.println("Please enter the game number and press Enter.");
+        System.out.println("1 - Greet");
+        System.out.println("2 - Even");
+        System.out.println("3 - Calc");
+        System.out.println("4 - GCD");
+        System.out.println("5 - Progression");
+        System.out.println("6 - Prime");
+        System.out.println("0 - Exit");
+        System.out.print("Your choice: ");
     }
 }
